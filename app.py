@@ -50,8 +50,8 @@ def main():
     active_member = st.selectbox("Is Active Member?", ["Yes", "No"])
     estimated_salary = st.number_input("Estimated Salary", min_value=0.0, step=100.0)
     # Convert Yes/No to 1/0
-    credit_card = 1 if has_cr_card == "Yes" else 0
-    active_member = 1 if is_active_member == "Yes" else 0
+    credit_card = 1 if credit_card == "Yes" else 0
+    active_member = 1 if active_member == "Yes" else 0
 
     if st.button('Predict'):
         results = prediction(credit_score,country, gender, age,tenure, balance, products_number,credit_card,active_member,estimated_salary)
