@@ -53,13 +53,10 @@ def main():
     credit_card = 1 if credit_card == "Yes" else 0
     active_member = 1 if active_member == "Yes" else 0
 
-    if st.button('Predict'):
+    if st.button("Predict"):
         results = prediction(credit_score,country, gender, age,tenure, balance, products_number,credit_card,active_member,estimated_salary)
-        label = prediction['prediction_label'].iloc[0]
-        score = prediction['prediction_score'].iloc[0]
-        st.subheader("🔍 Prediction Result")
-        st.write(f"The customer is **{'likely' if label == 1 else 'not likely'}** to churn.")
-        st.write(f"Prediction Confidence: **{score:.2f}**")
+        label = 'Yes' if results[0] == 1 else 'No'
+        st.success(f"The prediction is: **{label}**")
 
 # تشغيل التطبيق
 if __name__ == '__main__':
