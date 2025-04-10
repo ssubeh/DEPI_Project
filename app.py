@@ -5,7 +5,7 @@ import sklearn
 import sklearn.ensemble
 # إعداد عنوان الصفحة
 st.set_page_config(page_title='Bank Customer Churn Prediction')
-st.write('<h1 style="text-align:center;color: GoldenRod;">Drug Prediction Form</h1>', unsafe_allow_html=True)
+st.write('<h1 style="text-align:center;color:  blue;">Bank Customer Churn Prediction</h1>', unsafe_allow_html=True)
 st.write("*" * 100)
 
 # دالة التنبؤ
