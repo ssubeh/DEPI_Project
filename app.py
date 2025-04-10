@@ -3,19 +3,7 @@ import pandas as pd
 import joblib as jb
 import sklearn
 import sklearn.ensemble
-# Custom CSS to make sliders green
-st.markdown("""
-    <style>
-    /* Change color of slider track and handle */
-    .stSlider > div[data-baseweb="slider"] > div {
-        background: linear-gradient(to right, green 0%, green 100%) !important;
-    }
-    .stSlider > div[data-baseweb="slider"] span {
-        background-color: green !important;
-        border-color: green !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
+
 # إعداد عنوان الصفحة
 st.set_page_config(page_title='Bank Customer Churn Prediction')
 from PIL import Image
