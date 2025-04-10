@@ -57,7 +57,7 @@ def main():
 
     if st.button("Predict"):
         results = prediction(credit_score, country, gender, age, tenure, balance, products_number, credit_card, active_member, estimated_salary)
-        label = 'Stay' if results == 1 else 'Leave'
+        label = 'The customer will stay at the bank' if results == 1 else 'The customer will leave the bank'
         st.success(f"The prediction is: **{label}**")
 
 # تشغيل التطبيق
