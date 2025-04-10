@@ -51,18 +51,27 @@ def prediction(credit_score,country, gender, age,tenure, balance, products_numbe
 # الدالة الرئيسية
 
 def main():
-    country = st.radio('Banck Country', ['France', 'Germany','Spain'], horizontal=True)
+    country = st.radio('Banck Country', ['France','Germany','Spain'], horizontal=True)
     age = st.slider('Your Age', 15, 95, 25, step=1)
-    Sex = st.selectbox('Gender', ['Male', 'Female'])
-    
-    BP = st.selectbox('Blood Pressure Status', ['HIGH', 'LOW', 'NORMAL'])
-    Cholesterol = st.radio('Cholesterol Status', ['HIGH', 'NORMAL'], horizontal=True)
-    Na_to_K = st.number_input('Insert Value', min_value=6.269, max_value=38.247)
+    gender = st.selectbox('Gender', ['Male', 'Female'])
+    credit_score = st.number_input('Credit Score', min_value=300, max_value=900)
+    tenure = st.slider("Tenure (years)", 0, 10)
+    balance = st.number_input("Account Balance", min_value=0.0, step=100.0)
+    products_number = st.slider("Number of Products", 1, 4)
+    credit_card = st.selectbox("Has Credit Card?", ["Yes", "No"])
+    active_member = st.selectbox("Is Active Member?", ["Yes", "No"])
+    estimated_salary = st.number_input("Estimated Salary", min_value=0.0, step=100.0)
+    # Convert Yes/No to 1/0
+    credit_card = 1 if has_cr_card == "Yes" else 0
+    active_member = 1 if is_active_member == "Yes" else 0
 
     if st.button('Predict'):
-        results = prediction(Age, Sex, BP, Cholesterol, Na_to_K)
-        label = ['DrugY', 'drugX', 'drugC', 'drugA', 'drugB']
-        st.text(f'The Recommended Drug is {label[results]}')
+        results = prediction(credit_score,country, gender, age,tenure, balance, products_number,credit_card,active_member,estimated_salary)
+        label = prediction['prediction_label'].iloc[0]
+        score = prediction['prediction_score'].iloc[0]
+        st.subheader("🔍 Prediction Result")
+        st.write(f"The customer is **{'likely' if label == 1 else 'not likely'}** to churn.")
+        st.write(f"Prediction Confidence: **{score:.2f}**")
 
 # تشغيل التطبيق
 if __name__ == '__main__':
