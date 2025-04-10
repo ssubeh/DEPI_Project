@@ -16,21 +16,22 @@ with col1:
 with col2:
     st.markdown("<h2 style='color:blue;'>Bank Customer Churn Prediction</h2>", unsafe_allow_html=True)
 
+
 # دالة التنبؤ
 def prediction(credit_score,country, gender, age,tenure, balance, products_number,credit_card,active_member,estimated_salary):
     test_df = pd.DataFrame(columns=['credit_score', 'country', 'gender', 'age', 'tenure',
        'balance', 'products_number', 'credit_card', 'active_member',
        'estimated_salary'])
-    test_df.loc[0, 'credit_score'] = credit_score
-    test_df.loc[0, 'country'] = country
-    test_df.loc[0, 'gender'] = gender
-    test_df.loc[0, 'age'] = age
-    test_df.loc[0, 'tenure'] = tenure
-    test_df.loc[0, 'balance'] = balance
-    test_df.loc[0, 'products_number'] = products_number
-    test_df.loc[0, 'credit_card'] = credit_card
-    test_df.loc[0, 'active_member'] = active_member
-    test_df.loc[0, 'estimated_salary'] = estimated_salary
+    test_df.loc[0, 'credit_score'] = Credit_score
+    test_df.loc[0, 'country'] = Country
+    test_df.loc[0, 'gender'] = Gender
+    test_df.loc[0, 'age'] = Age
+    test_df.loc[0, 'tenure'] = Tenure
+    test_df.loc[0, 'balance'] = Balance
+    test_df.loc[0, 'products_number'] = Products_number
+    test_df.loc[0, 'credit_card'] = Credit_card
+    test_df.loc[0, 'active_member'] = Active_member
+    test_df.loc[0, 'estimated_salary'] = Estimated_salary
     result = Model.predict(test_df)
     return int(result[0])  # نحول الناتج إلى رقم صحيح لو كان مصفوفة أو سلسلة
 
@@ -38,8 +39,8 @@ def prediction(credit_score,country, gender, age,tenure, balance, products_numbe
 
 def main():
     Country = st.radio('country Status', ['France', 'Germany','Spain'], horizontal=True)
-    Age = st.slider('Age', 15, 95, 25, step=1)
-    Sex = st.selectbox('Gender', ['M', 'F'])
+    Age = st.slider('age', 15, 95, 25, step=1)
+    Sex = st.selectbox('gender', ['Male', 'Female'])
     BP = st.selectbox('Blood Pressure Status', ['HIGH', 'LOW', 'NORMAL'])
     Cholesterol = st.radio('Cholesterol Status', ['HIGH', 'NORMAL'], horizontal=True)
     Na_to_K = st.number_input('Insert Value', min_value=6.269, max_value=38.247)
