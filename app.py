@@ -3,7 +3,8 @@ import pandas as pd
 import joblib as jb
 import sklearn
 import sklearn.ensemble
-
+# تحميل الموديل المدرب
+Model = joblib.load("model.pkl")
 # إعداد عنوان الصفحة
 st.set_page_config(page_title='Bank Customer Churn Prediction')
 from PIL import Image
