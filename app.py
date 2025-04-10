@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib as jb
 import sklearn
-import RandomForestClassifier
+import sklearn.ensemble
 # إعداد عنوان الصفحة
 st.set_page_config(page_title='Bank Customer Churn Prediction')
 st.write('<h1 style="text-align:center;color: GoldenRod;">Drug Prediction Form</h1>', unsafe_allow_html=True)
