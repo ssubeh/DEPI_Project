@@ -56,8 +56,8 @@ def main():
     active_member = 1 if active_member == "Yes" else 0
 
     if st.button("Predict"):
-        results = prediction(credit_score,country, gender, age,tenure, balance, products_number,credit_card,active_member,estimated_salary)
-        label = 'Yes' if results[0] == 1 else 'No'
+        results = prediction(credit_score, country, gender, age, tenure, balance, products_number, credit_card, active_member, estimated_salary)
+        label = 'Yes' if results == 1 else 'No'
         st.success(f"The prediction is: **{label}**")
 
 # تشغيل التطبيق
