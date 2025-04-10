@@ -17,19 +17,28 @@ with col2:
     st.markdown("<h2 style='color:blue;'>Bank Customer Churn Prediction</h2>", unsafe_allow_html=True)
 
 # دالة التنبؤ
-def prediction(Age, Sex, BP, Cholesterol, Na_to_K):
-    test_df = pd.DataFrame(columns=['Age', 'Sex', 'BP', 'Cholesterol', 'Na_to_K'])
-    test_df.loc[0, 'Age'] = Age
-    test_df.loc[0, 'Sex'] = Sex
-    test_df.loc[0, 'BP'] = BP
-    test_df.loc[0, 'Cholesterol'] = Cholesterol
-    test_df.loc[0, 'Na_to_K'] = Na_to_K
+def prediction(credit_score,country, gender, age,tenure, balance, products_number,credit_card,active_member,estimated_salary):
+    test_df = pd.DataFrame(columns=['credit_score', 'country', 'gender', 'age', 'tenure',
+       'balance', 'products_number', 'credit_card', 'active_member',
+       'estimated_salary'])
+    test_df.loc[0, 'credit_score'] = credit_score
+    test_df.loc[0, 'country'] = country
+    test_df.loc[0, 'gender'] = gender
+    test_df.loc[0, 'age'] = age
+    test_df.loc[0, 'tenure'] = tenure
+    test_df.loc[0, 'balance'] = balance
+    test_df.loc[0, 'products_number'] = products_number
+    test_df.loc[0, 'credit_card'] = credit_card
+    test_df.loc[0, 'active_member'] = active_member
+    test_df.loc[0, 'estimated_salary'] = estimated_salary
     result = Model.predict(test_df)
     return int(result[0])  # نحول الناتج إلى رقم صحيح لو كان مصفوفة أو سلسلة
 
 # الدالة الرئيسية
+
 def main():
-    Age = st.slider('Age', 15, 74, 25, step=1)
+    Country = st.radio('country Status', ['France', 'Germany','Spain'], horizontal=True)
+    Age = st.slider('Age', 15, 95, 25, step=1)
     Sex = st.selectbox('Gender', ['M', 'F'])
     BP = st.selectbox('Blood Pressure Status', ['HIGH', 'LOW', 'NORMAL'])
     Cholesterol = st.radio('Cholesterol Status', ['HIGH', 'NORMAL'], horizontal=True)
