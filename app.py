@@ -5,6 +5,11 @@ import sklearn
 import sklearn.ensemble
 # إعداد عنوان الصفحة
 st.set_page_config(page_title='Bank Customer Churn Prediction')
+from PIL import Image
+
+# Load and show the logo
+logo = Image.open("logo.png")
+st.image(logo, width=150)  # Adjust width as needed
 st.write('<h1 style="text-align:center;color:  blue;">Bank Customer Churn Prediction</h1>', unsafe_allow_html=True)
 st.write("*" * 100)
 
