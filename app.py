@@ -9,9 +9,12 @@ from PIL import Image
 
 # Load and show the logo
 logo = Image.open("logo.png")
-st.image(logo, width=70)  # Adjust width as needed
-st.write('<h1 style="text-align:center;color:  blue;">Bank Customer Churn Prediction</h1>', unsafe_allow_html=True)
-st.write("*" * 100)
+
+col1, col2 = st.columns([1, 5])
+with col1:
+    st.image("logo.png", width=80)
+with col2:
+    st.markdown("<h1 style='color:blue;'>Bank Customer Churn Prediction</h1>", unsafe_allow_html=True)
 
 # دالة التنبؤ
 def prediction(Age, Sex, BP, Cholesterol, Na_to_K):
